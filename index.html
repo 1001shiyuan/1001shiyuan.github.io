@@ -33,23 +33,51 @@
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
-                <p>I am currently a graduate student at University of California, San Diego. 
-                I am studying machine learning and data science in the department of electrical engineering.</p>
+                <p>
+                    I am currently a graduate student at University of California, San Diego.
+                    I am studying machine learning and data science in the department of electrical engineering.
+                </p>
                 <div class="tab-titles">
-                    <p class="tab-links active-link">Skills</p>
-                    <p class="tab-links">Experience</p>
-                    <p class="tab-links">Education</p>
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
                 </div>
-                <div class="tab-contents">
+                <div class="tab-contents active-tab" id="skills">
                     <ul>
                         <li><span>Languages</span><br />Python, Matlab, JavaScript, SQL, C#, C++, C, PHP, Arduino</li>
                         <li><span>Technical</span><br />Electrical Engineering, Machine Learning, Data Science</li>
                         <li><span>Leadership</span><br />Leading a group, Training new members, Communication skills</li>
                     </ul>
                 </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>July/2022 - September/2022</span><br />Aloha Injury Clinic, Honolulu, Hawaii, Intern: Systems Engineer</li>
+                        <li><span>June/2021 - August/2021</span><br />Lenovo, Beijing, China, Intern: Electrical Test Engineer</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>September/2022 - June/2023</span><br />Master, UCSD, EE, GPA: 3.9/4.0</li>
+                        <li><span>September/2019 - June/2022</span><br />Bachelor, UCSD, EE, GPA: 3.8/4.0</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
 </body>
 </html>
